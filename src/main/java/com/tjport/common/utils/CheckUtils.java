@@ -9,8 +9,8 @@ import java.util.Arrays;
  * @date 2016-03-17
  */
 public class CheckUtils {
-   private static final String token = "xinxi";
-   //private static final String token = "neilguo";//测试公众号
+   //private static final String token = "xinxi";
+   private static final String token = "neilguo";//测试公众号
 	
    public static boolean checkSingnature(String signature, String timestamp, String nonce){
 	   String arr[] = new String[]{token,timestamp,nonce};

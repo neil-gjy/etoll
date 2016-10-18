@@ -139,25 +139,16 @@ public class weChatUtil {
 	public static Menu initMenu(){
 		Menu menu = new Menu();
 		
-		ClickButton curSalaryButton = new ClickButton();
-		curSalaryButton.setName("本月工资");
-		curSalaryButton.setType("click");
-		curSalaryButton.setKey("curSalary");
+		ViewButton leftOne = new ViewButton();
+		leftOne.setName("报表1");
+		leftOne.setType("view");
+		leftOne.setUrl("https://www.baidu.com");
 		
-		ClickButton curBonusButton = new ClickButton();
-		curBonusButton.setName("本月奖金");
-		curBonusButton.setType("click");
-		curBonusButton.setKey("curBonus");
 		
-		ClickButton hisSalaryButton = new ClickButton();
-		hisSalaryButton.setName("历史工资");
-		hisSalaryButton.setType("click");
-		hisSalaryButton.setKey("hisSalary");
-		
-		ClickButton hisBonusButton = new ClickButton();
-		hisBonusButton.setName("历史奖金");
-		hisBonusButton.setType("click");
-		hisBonusButton.setKey("hisBonus");
+		ClickButton leftTwo = new ClickButton();
+		leftTwo.setName("报表2");
+		leftTwo.setType("click");
+		leftTwo.setKey("leftTwo");
 		
 		
 		ClickButton scanButton = new ClickButton();
@@ -177,8 +168,8 @@ public class weChatUtil {
 		locationButton.setKey("location");
 		
 		Button salaryButton = new Button();
-		salaryButton.setName("工资查询");
-		salaryButton.setSub_button(new Button[]{curSalaryButton,curBonusButton, hisSalaryButton, hisBonusButton});
+		salaryButton.setName("报表查询");
+		salaryButton.setSub_button(new Button[]{leftOne, leftTwo});
 		
 		Button otherButton = new Button();
 		otherButton.setName("联系我们");

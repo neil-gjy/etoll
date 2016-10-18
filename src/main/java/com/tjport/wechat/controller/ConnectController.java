@@ -96,9 +96,10 @@ public class ConnectController extends BaseController {
 					String key = map.get("EventKey");
 					
 					// 判断菜单键值
-					//if(key.equals("")){
-						message = MessageUtil.initText(toUserName, fromUserName, content);
-					//}
+//					if(key.equals("leftOne")){
+//						message = MessageUtil.initText(toUserName, fromUserName, content);
+//						message= MessageUtil.bindInfoLink("www.baidu.com", openId)
+//					}
 				}
 				
 			}
