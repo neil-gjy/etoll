@@ -145,10 +145,10 @@ public class weChatUtil {
 		leftOne.setUrl("https://www.baidu.com");
 		
 		
-		ClickButton leftTwo = new ClickButton();
+		ViewButton leftTwo = new ViewButton();
 		leftTwo.setName("报表2");
-		leftTwo.setType("click");
-		leftTwo.setKey("leftTwo");
+		leftTwo.setType("view");
+		leftTwo.setUrl("http://10.128.137.245:18080/smartbi/vision/openresource.jsp?resid=I8a000d370156c0a7c0a7a22d0156d4e1dae569d9&user=haolj&password=123456");
 		
 		
 		ClickButton scanButton = new ClickButton();

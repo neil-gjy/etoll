@@ -106,10 +106,10 @@ public class MessageUtil {
 		StringBuilder content = new StringBuilder();
 		
 		content.append("欢迎关注天津港信息技术发展有限公司！\n");
-		content.append("目前开放功能：工资查询\n\n");
-		content.append("本月工资及奖金可直接通过点击菜单进行查询\n");
+		content.append("目前开放功能：散杂货费收报表查询\n\n");
+		/*content.append("本月工资及奖金可直接通过点击菜单进行查询\n");
 		content.append("历史工资以2016年4月为起始点\n");
-		content.append("历史奖金以2016年1月未起始点\n");
+		content.append("历史奖金以2016年1月未起始点\n");*/
 		
 		return content.toString();
 	}
