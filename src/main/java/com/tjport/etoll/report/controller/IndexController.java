@@ -11,14 +11,14 @@ import com.tjport.common.spring.BaseController;
 
 
 @Controller
-@RequestMapping(IndexController.BASE + "/" + IndexController.PATH)
+@RequestMapping(IndexController.BASE)
 public class IndexController extends BaseController {
-	final static String BASE = "etoll";
-	final static String PATH = "report";
+	final static String BASE = "report";
+	//final static String PATH = "report";
 	
 	@RequestMapping("index")
 	public String index() {
 		
-		return BASE + "/" + PATH + "/index";
+		return BASE + "/index";
 	}
 }

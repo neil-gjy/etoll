@@ -42,6 +42,9 @@ public class LoginController extends BaseController {
 		String menu = JSONObject.toJSON(weChatUtil.initMenu()).toString();
 		int result = weChatUtil.createMenu(token.getToken(), menu);
 		
+		String personalMenu = JSONObject.toJSON(weChatUtil.initPersonalMenu()).toString();
+		int resultPer = weChatUtil.createPersonalMenu(token.getToken(), personalMenu);
+		
 		if(result == 0){
 			System.out.println("Success！");
 		}

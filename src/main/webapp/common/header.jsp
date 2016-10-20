@@ -6,3 +6,5 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/font-awesome.min.css">
 <!-- Theme style -->
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/wechat.css">

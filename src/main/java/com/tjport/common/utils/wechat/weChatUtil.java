@@ -7,6 +7,8 @@ import com.tjport.common.utils.menu.Menu;
 import com.tjport.common.utils.menu.ViewButton;
 import com.tjport.common.utils.po.AccessTokenPo;
 import com.tjport.common.utils.po.UserInfoPo;
+import com.tjport.common.utils.menu.Matchrule;
+import com.tjport.common.utils.menu.PersonalMenu;
 
 import java.io.IOException;
 
@@ -37,6 +39,8 @@ public class weChatUtil {
 	private static final String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
 	
 	private static final String CREATE_MENU_URL = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
+	
+	private static final String CREATE_PERSONAL_MENU_URL = "https://api.weixin.qq.com/cgi-bin/menu/addconditional?access_token=ACCESS_TOKEN";
 	
 	private static final String USER_INFO_URL = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
 	
@@ -142,7 +146,7 @@ public class weChatUtil {
 		ViewButton leftOne = new ViewButton();
 		leftOne.setName("报表1");
 		leftOne.setType("view");
-		leftOne.setUrl("https://www.baidu.com");
+		leftOne.setUrl("http://10.128.51.172:8081/etoll/report/index");
 		
 		
 		ViewButton leftTwo = new ViewButton();
@@ -185,6 +189,74 @@ public class weChatUtil {
 		int result = 0;
 		
 		String url = CREATE_MENU_URL.replace("ACCESS_TOKEN", token);
+		
+		JSONObject jsonOject = postStr(url, menu);
+		
+		if(jsonOject != null){
+			result = jsonOject.getIntValue("errorcode");
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 个性化主菜单
+	 * @return Menu
+	 */
+	public static Menu initPersonalMenu(){
+		PersonalMenu menu = new PersonalMenu();
+		
+		ViewButton leftOne = new ViewButton();
+		leftOne.setName("报表1");
+		leftOne.setType("view");
+		leftOne.setUrl("http://10.128.51.172:8081/etoll/report/index");
+		
+		
+		ViewButton leftTwo = new ViewButton();
+		leftTwo.setName("报表2");
+		leftTwo.setType("view");
+		leftTwo.setUrl("http://10.128.137.245:18080/smartbi/vision/openresource.jsp?resid=I8a000d370156c0a7c0a7a22d0156d4e1dae569d9&user=haolj&password=123456");
+		
+		
+		ClickButton scanButton = new ClickButton();
+		scanButton.setName("扫码");
+		scanButton.setType("scancode_push");
+		scanButton.setKey("scanCode");
+		
+		
+		ClickButton bindButton = new ClickButton();
+		bindButton.setName("绑定个人信息");
+		bindButton.setType("click");
+		bindButton.setKey("bindInfo");
+		
+		ClickButton locationButton = new ClickButton();
+		locationButton.setName("地理位置");
+		locationButton.setType("location_select");
+		locationButton.setKey("location");
+		
+		Button salaryButton = new Button();
+		salaryButton.setName("报表查询");
+		salaryButton.setSub_button(new Button[]{leftOne, leftTwo});
+		
+		Button otherButton = new Button();
+		otherButton.setName("联系我们");
+		otherButton.setSub_button(new Button[]{bindButton,locationButton});
+		
+		menu.setButton(new Button[]{salaryButton,scanButton,otherButton});
+		
+		Matchrule matchrule = new Matchrule();
+		matchrule.setSex(1);
+		
+		menu.setMatchrule(matchrule);
+		
+		return menu;
+	}
+	
+	
+	public static int createPersonalMenu(String token,String menu){
+		int result = 0;
+		
+		String url = CREATE_PERSONAL_MENU_URL.replace("ACCESS_TOKEN", token);
 		
 		JSONObject jsonOject = postStr(url, menu);
 		
@@ -254,7 +326,7 @@ public class weChatUtil {
 	 * @param content
 	 * @return
 	 */
-	public static int sendMessage(String	 token, String openid, String content){
+	public static int sendMessage(String token, String openid, String content){
 		int result = 0;
 		String url = SEND_MESSAGE.replace("ACCESS_TOKEN", token);
 		
