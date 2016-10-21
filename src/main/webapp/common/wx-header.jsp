@@ -13,8 +13,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/AdminLTE.css">
 
-<%-- <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/skins/skin-blue-light.min.css"> --%>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/skins/skin-blue-light.min.css">
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/datatables.min.css">

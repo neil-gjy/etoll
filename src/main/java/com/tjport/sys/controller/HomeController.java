@@ -23,9 +23,9 @@ import com.tjport.sys.model.User;
 
 
 @Controller
-@RequestMapping
+@RequestMapping(HomeController.BASE)
 public class HomeController extends BaseController {
-	final static String BASE = "/";
+	final static String BASE = "sys";
 
 	@Autowired
 	private IResourceDao resourceDao;
@@ -44,7 +44,7 @@ public class HomeController extends BaseController {
 		map.put("userName", user.getName());
 		
 		
-		return "home";
+		return BASE + "/home";
 	}
 	
 	@RequestMapping("unauthorized")
