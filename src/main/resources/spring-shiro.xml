@@ -29,7 +29,7 @@
 		<property name="filterChainDefinitionMap" ref="definitionMetaSource"/> 
 	</bean>
 
-	<bean id="definitionMetaSource" class="com.tjport.safetyGroup.security.ShiroDefinitionSection">
+	<bean id="definitionMetaSource" class="com.tjport.security.ShiroDefinitionSection">
 		<property name="filterChainDefinitions">
 			<value>
 				/assets/** = anon

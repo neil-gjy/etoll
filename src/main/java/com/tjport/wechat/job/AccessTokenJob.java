@@ -6,7 +6,7 @@ import org.quartz.JobExecutionException;
 
 import com.tjport.common.utils.wechat.weChatUtil;
 import com.tjport.common.utils.po.AccessTokenPo;
-import com.tjport.wechat.controller.LoginController;
+import com.tjport.wechat.controller.TokenController;
 
 public class AccessTokenJob implements Job {
 
@@ -15,6 +15,6 @@ public class AccessTokenJob implements Job {
     public void execute(JobExecutionContext context) 
             throws JobExecutionException {
     	
-    	LoginController.setToken(weChatUtil.getAccessToken());//获取AccessToken
+    	TokenController.setToken(weChatUtil.getAccessToken());//获取AccessToken
     }
 }
